@@ -1,7 +1,7 @@
 ﻿﻿using System;
 using System.Web.Mvc;
 
-namespace UserPlus.App.Models
+namespace MyApp.Models
 {
     public class BoolModelBinder : IModelBinder
     {
@@ -25,11 +25,13 @@ namespace UserPlus.App.Models
             // Get value
             ValueProviderResult valueResult = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
 
-            // Return null
+            // No value
             if (valueResult == null)
             {
+                // If not nullable return false
                 if (bindingContext.ModelType == typeof(bool))
                     return false;
+                // If nullable return null
                 else
                     return null;
             }
