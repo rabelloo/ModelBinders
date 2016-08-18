@@ -2,14 +2,13 @@
 using System.Globalization;
 using System.Web.Mvc;
 
-namespace UserPlus.App.Models
+namespace MyApp.Models
 {
     public class DecimalModelBinder : IModelBinder
     {
         public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
-            ValueProviderResult valueResult = bindingContext.ValueProvider
-                .GetValue(bindingContext.ModelName);
+            ValueProviderResult valueResult = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
 
             ModelState modelState = new ModelState { Value = valueResult };
 
